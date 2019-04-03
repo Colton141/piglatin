@@ -17,23 +17,24 @@ function pigLatin (phrase) {
 
   if (isCons) {
 
+    var isVowel = false;
     var vowelLocation = 0;
     for(var i = 1; i < phrase.length; i++) {
+      isVowel = false;
       for (var v = 0; v < vowels.length; v++) {
-        var isVowel = false;
         if (phrase[i] === vowels[v]) isVowel = true;
       }
       if (isVowel === true) {
-        vowelLocation = i + 1;
+        vowelLocation = i;
         break;
       }
     }
     var cons = phrase.slice(0, vowelLocation);
-    console.log(vowelLocation);
     return phrase.slice(vowelLocation, phrase.length) + cons + "ay"
   }
-
-
+// Qu rules for words
+var searchterm = true
+//for (var i = 0)
 
 }
 
