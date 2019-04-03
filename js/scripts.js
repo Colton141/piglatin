@@ -9,6 +9,7 @@ function pigLatinAWord (word) {
   for (var i=0; i<word.length;i = i +1) {
     if (isAVowel(word[i]) === true) {
       if (i > 0 && word[i] === "u" && word[i - 1] === "q") {
+        //     "ire"             + "squ" + "ay"
         return word.slice(i + 1) + word.slice(0, i + 1) + "ay"
       } else {
         return word.slice(i) + word.slice(0, i) + "ay"
