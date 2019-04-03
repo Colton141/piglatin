@@ -1,19 +1,50 @@
-function leapYear (year) {
-  var isLeapYear = false;
+var vowels = ['a','e','i','o','u']
 
-  if (year%4===0) isLeapYear = true;
-  if (year%100===0) isLeapYear = false;
-  if (year%400===0) isLeapYear = true;
-  return isLeapYear;
+function pigLatin (phrase) {
+  //Catch all words that start with vowels
+  for (var i = 0; i < vowels.length; i++) {
+    var letter = phrase[0];
+    if (letter === vowels[i]) {
+      phrase += "way"
+      return phrase;
+    }
+  }
+  //Words begining with consonants
+  var isCons = true;
+  for (var i = 0; i < vowels.length; i++) {
+    if (phrase[0] === vowels[i]) isCons = false;
+  }
+
+  if (isCons) {
+
+    var vowelLocation = 0;
+    for(var i = 1; i < phrase.length; i++) {
+      for (var v = 0; v < vowels.length; v++) {
+        var isVowel = false;
+        if (phrase[i] === vowels[v]) isVowel = true;
+      }
+      if (isVowel === true) {
+        vowelLocation = i + 1;
+        break;
+      }
+    }
+    var cons = phrase.slice(0, vowelLocation);
+    console.log(vowelLocation);
+    return phrase.slice(vowelLocation, phrase.length) + cons + "ay"
+  }
+
+
+
 }
 
 
+//newWord = seccondPart + firstPart + ay;
 
 
 
 $(document).ready(function (){
-console.log("1993: " + leapYear(1993))
-console.log("2004: " + leapYear(2004))
-console.log("1900: " + leapYear(1900))
-console.log("2000: " + leapYear(2000))
+  console.log("apple: " + pigLatin("apple"))          //appleway
+  console.log("schnapps: " + pigLatin("schnapps"))    //appsschnay
+  console.log("squire: " + pigLatin("squire"))        //iresquay
+  console.log("yelp: " + pigLatin("yelp"))            //elpyay
 });

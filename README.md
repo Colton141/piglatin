@@ -1,19 +1,19 @@
-# _Leap Year_
+# _Pig Latin_
 
-#### _Leap year tester, 2019_
+#### _Pig Latin, 2019_
 
 #### By _**Nathan & Dominic**_
 
 ## Description
 
-_Test for leap years_
+_Pig Latin_
 
-| Behavior                                                                                      | Input | Output |
-|-----------------------------------------------------------------------------------------------|-------|--------|
-| The program should return when a year is not a leap year.                                     | 1993  |  false |
-| The program should return 'true' for years divisible by 4, since those are leap years.        | 2004  |  true  |
-| The program should return 'false' for years divisible by 100, since those are not leap years. | 1900  |  false |
-| The program should return 'true' for years divisible by 400, since those are leap years.      | 2000  |  true  |
+| Behavior                                                                                      | Input | Output    |
+|-----------------------------------------------------------------------------------------------|-------|-----------|
+| For words beginning with a vowel, add "way" to the end                                        | apple |  appleway |
+| For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay"        | schnapps  |  appsschnay  |
+| If the first consonants include "qu", move the "u" along with the "q".  Don't forget about words like "squeal" where "qu" doesn't come first! | squire |  iresquay |
+| For words beginning with "y", treat "y" as a consonant.      | yelp  |  elpyay  |
 
 
 ## Setup/Installation Requirements
