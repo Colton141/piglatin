@@ -3,3 +3,11 @@ img {
   height: 100%;
   length: 100000px;
 }
+
+body {
+  background-image: url(../img/p1.jpg);
+}
+
+h2 {
+  background-color: white;
+}

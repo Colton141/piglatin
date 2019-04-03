@@ -1,4 +1,4 @@
-var vowels = ['a','e','i','o','u']
+var vowels = ['a', 'e', 'i', 'o', 'u']
 
 
 function pigLatinAWord (word) {
@@ -16,11 +16,7 @@ function pigLatinAWord (word) {
       }
     }
   }
-
-
-
-
-return word;
+  return word;
 }
 
 
@@ -32,24 +28,29 @@ function isAVowel(letter) {
   return false;
 }
 
-// for(var i=0;i <word.length; i = i + 1) { //also i++, i += 1
-  // }
-
-
-  function pigLatinTheWords (phrase) {
-    var words = phrase.split(" ");
-    var pigLatinPhrase = "";
-    words.forEach (function (word) {
-      pigLatinPhrase += pigLatinAWord(word);
-      pigLatinPhrase += " ";
-    });
-    return pigLatinPhrase;
-  }
-
-  $(document).ready(function (){
-    console.log("apple: " + pigLatinTheWords("apple"))          //appleway
-    console.log("schnapps: " + pigLatinTheWords("schnapps"))    //appsschnay
-    console.log("squire: " + pigLatinTheWords("squire"))        //iresquay
-    console.log("yelp: " + pigLatinTheWords("yelp"))            //elpyay
-    console.log("apple bottom jeanes: " + pigLatinTheWords("apple bottom jeanes"))            //elpyay
+function pigLatinTheWords (phrase) {
+  phrase = phrase.toLowerCase();
+  var words = phrase.split(" ");
+  var pigLatinPhrase = "";
+  words.forEach (function (word) {
+    pigLatinPhrase += pigLatinAWord(word);
+    pigLatinPhrase += " ";
   });
+  var returnphrase = pigLatinPhrase[0].toUpperCase() + pigLatinPhrase.slice(1)
+  return returnphrase;
+}
+
+$(document).ready(function (){
+
+
+  $("#pigme").click(function() {
+    pigLatinTheWords("apple")
+    $("#pigwords").text(pigLatinTheWords($("#wordsandstuff").val()));
+  });
+  // console.log("apple: " + pigLatinTheWords("apple"))          //appleway
+  // console.log("schnapps: " + pigLatinTheWords("schnapps"))    //appsschnay
+  // console.log("squire: " + pigLatinTheWords("squire"))        //iresquay
+  // console.log("yelp: " + pigLatinTheWords("yelp"))            //elpyay
+  // console.log("apple bottom jeans: " + pigLatinTheWords("apple bottom jeans"))            //elpyay
+  // console.log("yes yap cyan yesterday: " + pigLatinTheWords("yes yap cyan yesterday"))            //elpyay
+});
