@@ -1,51 +1,43 @@
 var vowels = ['a','e','i','o','u']
 
-function pigLatin (phrase) {
-  //Catch all words that start with vowels
-  for (var i = 0; i < vowels.length; i++) {
-    var letter = phrase[0];
-    if (letter === vowels[i]) {
-      phrase += "way"
-      return phrase;
-    }
-  }
-  //Words begining with consonants
-  var isCons = true;
-  for (var i = 0; i < vowels.length; i++) {
-    if (phrase[0] === vowels[i]) isCons = false;
-  }
 
-  if (isCons) {
+function pigLatinAWord (word) {
+  //return word;
+  if (isAVowel(word[0]) === true) return word + "way"
 
-    var isVowel = false;
-    var vowelLocation = 0;
-    for(var i = 1; i < phrase.length; i++) {
-      isVowel = false;
-      for (var v = 0; v < vowels.length; v++) {
-        if (phrase[i] === vowels[v]) isVowel = true;
-      }
-      if (isVowel === true) {
-        vowelLocation = i;
-        break;
-      }
-    }
-    var cons = phrase.slice(0, vowelLocation);
-    return phrase.slice(vowelLocation, phrase.length) + cons + "ay"
-  }
-// Qu rules for words
-var searchterm = true
-//for (var i = 0)
 
+
+
+  return word;
 }
 
 
-//newWord = seccondPart + firstPart + ay;
+
+function isAVowel(letter) {
+  for ( var v=0; v<vowels.length;v = v + 1) {
+    if (letter === vowels[v]) return true;
+  }
+  return false;
+}
+
+// for(var i=0;i <word.length; i = i + 1) { //also i++, i += 1
+  // }
 
 
+  function pigLatinTheWords (phrase) {
+    var words = phrase.split(" ");
+    var pigLatinPhrase = "";
+    words.forEach (function (word) {
+      pigLatinPhrase += pigLatinAWord(word);
+      pigLatinPhrase += " ";
+    });
+    return pigLatinPhrase;
+  }
 
-$(document).ready(function (){
-  console.log("apple: " + pigLatin("apple"))          //appleway
-  console.log("schnapps: " + pigLatin("schnapps"))    //appsschnay
-  console.log("squire: " + pigLatin("squire"))        //iresquay
-  console.log("yelp: " + pigLatin("yelp"))            //elpyay
-});
+  $(document).ready(function (){
+    console.log("apple: " + pigLatinTheWords("apple"))          //appleway
+    console.log("schnapps: " + pigLatinTheWords("schnapps"))    //appsschnay
+    console.log("squire: " + pigLatinTheWords("squire"))        //iresquay
+    console.log("yelp: " + pigLatinTheWords("yelp"))            //elpyay
+    console.log("apple bottom jeanes: " + pigLatinTheWords("apple bottom jeanes"))            //elpyay
+  });
